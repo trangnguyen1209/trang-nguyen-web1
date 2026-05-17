@@ -64,7 +64,9 @@
             <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
             </div>
-            <input type="text" id="input-group-" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            <form action="search.html">
+                <input type="text" id="input-group-1" name="keyword" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            </form>
             </div>
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-search" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -76,7 +78,9 @@
                 <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500!" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
                 </div>
-                <input type="text" id="input-group-1" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                <form action="search.html">
+                    <input type="text" id="input-group-2" name="keywords" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                </form>
             </div>
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                     <li>
@@ -92,13 +96,12 @@
                     <a href="blogs.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Blogs</a>
                     </li>
                     <li>
-                    <a href="contact.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Contact</a>
+                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+                    <a href="#" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin logout-btn">Profile</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Register</a>
-                    </li>
-                    <li>
-                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin logout-btn">Logout</a>
                     </li>
                     
                 </ul>
@@ -162,7 +165,7 @@
     </section>
 
 
-    <!Product with 4 columnns>
+    <!--Product with 4 columnns-->
     <section class="max-w-7xl mx-auto py-16 grid grid-cols-2 md:grid-cols-4 gap-8 px-8" id="products">
         <img src="images/system/preloader.gif" alt="">
     </section>
@@ -181,6 +184,7 @@
                     <label for="email">Please, write your e-mail: </label>
                     <input type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Trang" required />
                 <button type="submit" class="text-white bg-dark box-border border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base px-4 py-2.5 mt-2 float-end focus:outline-none font-heading text-2xl">SUBSCRIBES</button>
+                </form>
 
             </div>
 
@@ -215,10 +219,13 @@
                     <a href="contact.html" class="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Contact</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Register</a>
+                    <a href="register.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+
+                    <a href="#" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Profile</a>
                     </li>
                     <li>
-                    <a href="login.html" class="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="#" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Logout</a>
                     </li>
                     
                 </ul>
@@ -253,6 +260,60 @@
      </div>    
 
 
+    
+
+
+
+    <!-- Main modal -->
+    <div id="crud-modal" class="hidden" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-neutral-primary-soft border border-default rounded-base shadow-sm p-4 md:p-6">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
+                    <h3 class="text-lg font-medium text-heading">
+                        Update your profile
+                    </h3>
+                    <button type="button" class="text-body bg-transparent hover:bg-neutral-tertiary hover:text-heading rounded-base text-sm w-9 h-9 ms-auto inline-flex justify-center items-center" data-modal-hide="crud-modal">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/></svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <form action="#" onsubmit="handleUpdateProfile(event)">
+                    <div class="grid gap-4 grid-cols-2 py-4 md:py-6">
+                        <div class="col-span-2">
+                            <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
+                            <input type="email" name="email" type="hidden" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Type your name" disable>
+                        </div>
+                        <div class="col-span-2">
+                        <label for="name" type="hidden" class="block mb-2.5 text-sm font-medium text-heading">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                            placeholder="Type your name"
+                            required="">
+                    </div>
+                    <input type="hidden" name="id" id="id">
+
+                    <div class="flex items-center space-x-4 border-t border-default pt-4 md:pt-6">
+                        <button type="submit" class="inline-flex items-center  text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+
+                            Update
+                        </button>
+                        <button data-modal-hide="crud-modal" type="button" id="close-btn" class="text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Cancel</button>
+                    </div>
+                    <div id="message"></div>
+
+                </form>
+            </div>
+        </div>
+    </div> 
 
 
 
@@ -277,7 +338,7 @@
         </div>
         {{/each}}
     </script>
-    <!--News template>
+    <!--News template-->
     <script id="news-template" type="text/x-handlebars-template">
         {{#each data}}
         <div class="grid grid-cols-[2.5fr_7.5fr] gap-4">

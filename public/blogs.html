@@ -64,7 +64,9 @@
             <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
             </div>
-            <input type="text" id="input-group-" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            <form action="blogs.html">
+                <input type="text" id="input-group-1" name="keyword" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            </form>
             </div>
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-search" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -76,7 +78,9 @@
                 <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500!" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
                 </div>
-                <input type="text" id="input-group-1" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                <form action="blogs.html">
+                    <input type="text" id="input-group-2" name="keyword" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                </form>
             </div>
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                     <li>
@@ -95,10 +99,12 @@
                     <a href="contact.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Contact</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Register</a>
+                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+                    <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin">Profile</a>
                     </li>
                     <li>
-                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin logout-btn">Logout</a>
                     </li>
                     
                 </ul>
@@ -153,10 +159,13 @@
                     <a href="contact.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Contact</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Register</a>
+                    <a href="register.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+
+                    <a href="#" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Profile</a>
                     </li>
                     <li>
-                    <a href="login.html" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="#" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Logout</a>
                     </li>
                     
                 </ul>
@@ -168,6 +177,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
     <script src="js/helpers/handlebars-formatDate-helpers.js"></script>
     
+    
     <script id="blogs-template" type="text/x-handlebars-template">
         {{#each data.data}}
         <div class="py-4 clear-both">
@@ -175,7 +185,7 @@
             <p class="py-4">
                 by {{#if author}}{{author.name}}{{else}}Anonymous{{/if}} in
                 <a href="blogs.html?category={{category_id}}">{{category.name}}</a> on {{formatDate created_at}}
-                <a href="href="blog-details.html?id={{id}}#comments">
+                <a href="blog-details.html?id={{id}}#comments">
                     Comments ({{comments.length}})</a>
             </p>
             <a href="blog-details.html?id={{id}}"><img src="{{thumbpath}}" alt="{{title}}" class="float-start mb-8 me-8 rounded-xl"></a>
@@ -191,7 +201,7 @@
 
                 {{#unless startFromFirstPage}}
                 <li>
-                    <a href="blogs.html?page={{prevPage}}&category={{category}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm w-9 h-9 focus:outline-none">
+                    <a href="blogs.html?page={{prevPage}}&category={{category}}&keyword={{keyword}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm w-9 h-9 focus:outline-none">
                         <span class="sr-only">Previous</span>
                         <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/></svg>
                     </a>
@@ -200,13 +210,13 @@
 
                 {{#each pages}}
                 <li>
-                    <a href="blogs.html?page={{page}}&category={{../category}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none {{#if isCurrent}}active{{/if}}">{{page}}</a>
+                    <a href="blogs.html?page={{page}}&category={{../category}}&keyword={{../keyword}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none {{#if isCurrent}}active{{/if}}">{{page}}</a>
                 </li>
                 {{/each}}
 
                 {{#unless endAtLastPage}}
                 <li>
-                    <a href="blogs.html?page={{nextPage}}&category={{category}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm w-9 h-9 focus:outline-none">
+                    <a href="blogs.html?page={{nextPage}}&category={{category}}&keyword={{../keyword}}" class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm w-9 h-9 focus:outline-none">
                         <span class="sr-only">Next</span>
                         <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg>
                     </a>
@@ -224,10 +234,10 @@
             <img src="images/marker1.png" alt="" class="me-2">
             <a href="blogs.html">Show All</a>
         </li>
-        {{#each data}}
+        {{#each data.categories}}
         <li class="flex items-center" id="category{{id}}">
             <img src="images/marker1.png" alt="" class="me-2">
-            <a href="blogs.html?category={{id}}">{{name}}</a>
+            <a href="blogs.html?category={{id}}&keyword={{../data.keyword}}">{{name}}</a>
         </li>
         {{/each}}
     </script>
@@ -243,16 +253,18 @@
 
     <script>
         (async function () {
+            const params = new URLSearchParams(window.location.search);
             const selectedCategory = getSelectedCategoryFromURL();
-            const selectedPage = new URLSearchParams(window.location.search).get("page") || 1;
+            const keyword = params.get('keyword') ?? "";
+            const selectedPage = params.get("page") || 1;
 
             const [categories, blogsResult] = await Promise.all([
                 fetchCategoriesByType("blogs"),
-                fetchBlogsByCategoryId(selectedCategory, selectedPage, 2),
+                fetchBlogsByCategoryId(keyword, selectedCategory, selectedPage, 2), // ← đúng thứ tự
             ]);
 
-            renderView("categories-template", "categories", categories);
-            renderView("blogs-template", "blogs", blogsResult);
+            renderView("categories-template", "categories", { categories, keyword });
+            renderView("blogs-template", "blogs", { ...blogsResult, keyword });
 
             highlightCategoryTab(selectedCategory || "All");
         })();

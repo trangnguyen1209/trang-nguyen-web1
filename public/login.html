@@ -54,10 +54,11 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Sign in to your account
                     </h1>
-                    <form class="space-y-4 md:space-y-6" action="#">
+                    <form class="space-y-4 md:space-y-6" action="#" onsubmit="login(event)">
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
@@ -76,5 +77,35 @@
             
     
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script> 
     
+    <script src="js/24880269.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/api/database.js"></script>
+    <script>
+        async function login(e) {
+            e.preventDefault();
+
+            const returnUrl = document.referrer ? document.referrer : "blogs.html";
+
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+
+            if (!email || !password) {
+                showToast('warning', 'Login Error: Email and password can not be empty!');
+            }
+
+            const loginBtn = document.querySelector('button[type=submit]');
+
+            try {
+                loginBtn.innerText = 'Signing in...';
+                await supabaseLogin(email, password);
+                window.location.replace(returnUrl);
+            } catch (error) {
+                loginBtn.innerText = "Sign in";
+                showToast("warning", `Login Error: ${error.message}`);
+            }
+        }
+    </script>
 </body>

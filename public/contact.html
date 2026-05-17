@@ -66,7 +66,9 @@
             <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
             </div>
-            <input type="text" id="input-group-" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            <form action="search.html">
+                <input type="text" id="input-group-1" name="keyword" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+            </form>
             </div>
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-search" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -78,7 +80,9 @@
                 <div class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-green-500!" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
                 </div>
-                <input type="text" id="input-group-1" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                <form action="search.html">
+                    <input type="text" id="input-group-2" name="keyword" class="block w-full ps-4 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body" placeholder="Search">
+                </form>
             </div>
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                     <li>
@@ -97,10 +101,13 @@
                     <a href="contact.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent active" aria-current="page">Contact</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Register</a>
+                    <li>
+                    <a href="register.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+                    <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin">Profile</a>
                     </li>
                     <li>
-                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent isLogin logout-btn">Logout</a>
                     </li>
                     
                 </ul>
@@ -145,18 +152,18 @@
         <p class="my-4 italic">All fields with an * are required.</p>
         </p>
         
-        <form>
+        <form onsubmit="send(event)">
             <div class="grid gap-6 mb-6 md:grid-cols-3">
                 <div>
                     <label for="subject" class="block mb-2.5 text-sm font-medium text-heading">*Your subject</label>
-                    <input type="text" id="name" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Coffee bean" required />
+                    <input type="text" id="subject" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Coffee bean" required />
                 </div>
                 <div>
-                    <label for="name" class="block mb-2.5 text-sm font-medium text-heading">Your name</label>
+                    <label for="name" class="block mb-2.5 text-sm font-medium text-heading">*Your name</label>
                     <input type="name" id="name" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Trang Nguyen" required />
                 </div>
                  <div>
-                    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
+                    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">*Email</label>
                     <input type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="trangise12@gmail.com" required />
                 </div>
   
@@ -164,7 +171,7 @@
 
             </div>
 
-            <label for="message" class="block mb-2.8 text-sm font-medium text-heading">Your message</label>
+            <label for="message" class="block mb-2.8 text-sm font-medium text-heading">*Your message</label>
              <div>
                 <textarea id="message" rows="4" class=" bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body" placeholder="Write your thoughts here..."></textarea>
             </div>
@@ -195,10 +202,13 @@
                     <a href="contact.html" class="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent active" aria-current="page"">Contact</a>
                     </li>
                     <li>
-                    <a href="register.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Register</a>
+                    <a href="register.html" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Register</a>
+
+                    <a href="#" class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Profile</a>
                     </li>
                     <li>
-                    <a href="login.html" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Login</a>
+                    <a href="login.html" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogout">Login</a>
+                    <a href="#" class="block py-2 px-3 text-white  md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent isLogin">Logout</a>
                     </li>
                     
                 </ul>
@@ -206,8 +216,60 @@
     </footer>
 
     <div class="text-center">Copy right &copy;2026 by 24880269 - Nguyen Thi Huyen Trang</div>
+    <!--Toast-->
+    <div id ="toast-container" class="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4">
+        <div id="toast-success" class="hidden flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default pointer-events-auto" role="alert">
+            <div class="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/></svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ms-3 text-sm font-normal toast-message">Your email has been save successfully!</div>
+            <button type="button" class="toast-close ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/></svg>
+            </button>
+       </div> 
+    </div>   
+
+
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+    <!--HandlebarJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+    <!--supabase-->
     <script src="js/map.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/24880269.js"></script>
+    <script src="js/toast.js"></script>
+
+
+    <script>
+        async function send(e) {
+            e.preventDefault();
+
+            const form = e.target;
+
+            const name = form.querySelector('#name')?.value.trim();
+            const email = form.querySelector('#email')?.value.trim();
+            const subject = form.querySelector('#subject')?.value.trim();
+            const message = form.querySelector('#message')?.value.trim();
+
+            if (!name || !email || !subject || !message) {
+                showToast('warning', 'Please fill in all required fields.');
+                return;
+            }
+
+            try {
+                await sendMessage(name, email, subject, message); 
+                throw new Error("Something wrong");
+                showToast("success", "Your message has been saved successfully!");
+                form.reset();
+            } catch (error) {
+                console.error('Error sending message', error);
+                showToast('warning', error.message);
+            }
+        }
+    </script>
 
 </body> 
 
