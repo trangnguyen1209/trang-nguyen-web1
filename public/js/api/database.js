@@ -79,7 +79,10 @@ async function fetchGallery() {
 }
 
 
-async function fetchBlogsByCategoryId(categoryId = "All", page = 1, pageSize = 2) {
+async function fetchBlogsByCategoryId(
+    keyword ="",
+    categoryId = "All", page = 1, pageSize = 2) 
+    {
     const safeCategoryId = Number(categoryId);
     const safePage = Math.max(1, Number(page) || 1);
     const safePageSize = Math.max(1, Number(pageSize) || 2);
@@ -116,6 +119,12 @@ async function fetchBlogsByCategoryId(categoryId = "All", page = 1, pageSize = 2
     if (!Number.isNaN(safeCategoryId) && safeCategoryId > 0) {
         query = query.eq("category_id", safeCategoryId);
     }
+    const textSearch = (keyword || "").trim();
+    if (textSearch) {
+        query = query.or(
+            `title.ilike.%${textSearch}%,summary.ilike.%${textSearch}%,description.ilike.%${textSearch}%`
+        );
+    }
 
     const { data, error, count } = await query.range(from, to);
     const totalItems = count ?? 0;
@@ -134,6 +143,7 @@ async function fetchBlogsByCategoryId(categoryId = "All", page = 1, pageSize = 2
                 size: safePageSize,
                 prevPage,
                 nextPage,
+                keyword,
             },
             error,
         };
@@ -148,6 +158,7 @@ async function fetchBlogsByCategoryId(categoryId = "All", page = 1, pageSize = 2
             size: safePageSize,
             prevPage,
             nextPage,
+            keyword,
         },
         error,
     };
@@ -182,5 +193,178 @@ async function fetchBlogById(id) {
         return null;
     }
 
+    return data;
+}
+
+
+async function sendMessage(name, email, subject, message) {
+    const { error } = await client
+        .from("contacts")
+        .insert({ email, name, subject, message });
+
+    if (error) throw error;
+}
+
+
+async function fetchDataByKeyword(keyword) {
+    const textSearch = (keyword || "").trim();
+    const excluded = [31, 32, 33, 34];
+
+    let query = client
+        .from("information")
+        .select(`
+            id,
+            title,
+            summary,
+            thumbpath
+        `)
+        .not("category_id", "in", `(${excluded.join(",")})`);
+
+    if (textSearch) {
+        query = query.or(
+            `title.ilike.%${textSearch}%,summary.ilike.%${textSearch}%,description.ilike.%${textSearch}%`
+        );
+    }
+}
+
+async function fetchDataByKeyword(keyword) {
+    const textSearch = (keyword || "").trim();
+    const excluded = [31, 32, 33, 34];
+
+    let query = client
+        .from("information")
+        .select(`
+            id,
+            title,
+            summary,
+            thumbpath
+        `)
+        .not("category_id", "in", `(${excluded.join(",")})`);
+
+    if (textSearch) {
+        query = query.or(
+            `title.ilike.%${textSearch}%,summary.ilike.%${textSearch}%,description.ilike.%${textSearch}%`
+        );
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        console.error("Error searching data", error);
+        return [];
+    }
+
+    return data;
+}
+
+async function supabaseSignup(email, password, name) {
+
+    let { data, error } = await client.auth.signUp({
+        email,
+        password
+    });
+
+    if (error) throw error;
+
+    ({ error } = await client.from("users").insert({
+        id: data.user.id,
+        name,
+        email,
+    }));
+
+    if (error) throw error;
+}
+
+
+
+client.auth.onAuthStateChange((event, session) => {
+    initAuthUI(session);
+});
+
+async function initAuthUI(session) {
+    const isLogin = Boolean(session?.user);
+
+    document
+        .querySelectorAll(".isLogout")
+        .forEach((item) => item.classList.toggle("hidden", isLogin));
+
+    document
+        .querySelectorAll(".isLogin")
+        .forEach((item) => item.classList.toggle("hidden", !isLogin));
+    const { id, email } = session.user;
+    const profile = await fetchUserProfile(id);
+    document.querySelector('#crud-modal #email').value = email;
+    document.querySelector('#crud-modal #name').value = profile?.name;
+    document.querySelector('#crud-modal #id').value = id;
+
+}
+
+
+async function fetchUserProfile(id) {
+    const { data, error } = await client
+        .from("users")
+        .select("name")
+        .eq("id", id)
+        .single();
+
+    if (error) {
+        console.error("Fetch User Profile Error", error);
+        return null;
+    }
+    return data;
+}
+
+async function handleUpdateProfile(e) {
+    e.preventDefault();
+
+    const name = document.querySelector("#crud-modal #name").value;
+    const id = document.querySelector("#crud-modal #id").value;
+    const message = document.querySelector("#crud-modal #message");
+
+
+    try {
+        await updateUserProfile(id, name);
+        message.innerText = "";
+        document.querySelector("#crud-modal #close-btn").click();
+
+    } catch (error) {
+        console.error("Update User Error:", error);
+        message.innerText = error.message;
+
+    }
+}
+
+
+
+
+
+
+async function handleUpdateProfile(e) {
+    e.preventDefault();
+
+    const name = document.querySelector("#crud-modal #name");
+    const id = document.querySelector("#crud-modal #id");
+}
+
+
+
+
+
+
+
+
+
+async function logout() {
+    const { error } = await client.auth.signOut();
+    if (error) throw error;
+}
+
+async function supabaseLogin(email, password) {
+    const { data, error } = await client.auth.signInWithPassword({
+        email,
+        password,
+    });
+
+    if (error) throw error;
     return data;
 }
