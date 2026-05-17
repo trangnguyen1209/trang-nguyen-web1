@@ -198,3 +198,38 @@ Handlebars.registerHelper("pagination", function (currentPage, pageCount, size, 
 
     return options.fn(context);
 });
+
+async function sendMessage(name, email, subject, message) {
+    const { error } = await client.from('contacts').insert({ 
+        name, 
+        email, 
+        subject, 
+        message 
+    });
+    if (error) throw error;
+}
+
+function handleLogoutButton() {
+    document.querySelectorAll(".logout-btn").forEach((btn) => {
+        btn.onclick = async () => {
+            try {
+                await supabaseLogout();
+            } catch (error) {
+                alert(`Logout Error: ${error.message}`);
+            }
+        };
+    });
+}
+
+
+
+
+
+
+
+
+
+(async function initPage() {
+    handleLogoutButton();
+})();
+

@@ -27,7 +27,12 @@ function hideToast(type = 'success') {
 }
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#toast-success button').addEventListener('click', () => hideToast("success"));
-    document.querySelector('#toast-warning button').addEventListener('click', () => hideToast("warning"));
+    const successBtn = document.querySelector('#toast-success button');
+    const warningBtn = document.querySelector('#toast-warning button');
+
+    if (successBtn) successBtn.addEventListener('click', () => hideToast("success"));
+    if (warningBtn) warningBtn.addEventListener('click', () => hideToast("warning"));
 });
